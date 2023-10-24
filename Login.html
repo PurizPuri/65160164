@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <style>
+        h1 {
+          color: green;
+        }
+        div {
+          margin-left: auto;
+          margin-right: auto;
+          border: 1px solid black;
+          text-align: center;
+          width: 20%;
+        }
+        table {
+          width: 100%;
+        }
+        td {
+          text-align: justify;
+        }
+        .button {
+          height: 30px;
+          width: 100px;
+          background-color: #4caf50;
+          border: none;
+          color: white;
+        }
+    </style>
+
+    <script>
+        function validateForm() {
+            var validRegex = /@Email/;
+            let email = document.forms["myForm"]["Email"].value;
+            let password = document.forms["myForm"]["Password"].value;
+            
+            if ( password == "" && email == "" || email == "" || password == "" ){
+                alert("กรุณากรอกข้อมูลให้ถูกต้อง");
+                document.forms["myForm"].reset();
+                return false
+            }
+
+            else if (!validRegex.test(email)) {
+                  alert("กรุณากรอกข้อมูล Email ให้ถูกต้อง");
+                  document.forms["myForm"].reset();
+                  return false;
+            }
+            else if (email != "" && password != ""){
+              nextwindow() 
+            }
+
+        }
+
+        function nextwindow() {
+          window.open("Member.html")
+          window.close("Login.html")
+
+        }
+    </script>
+
+  </head>
+
+
+  <body>
+    <div>
+      <table>
+        <tr>
+          <th colspan="2">
+            <h1>LOGIN FROM</h1>
+          </th>
+          <th></th>
+        </tr>
+        <tr>
+          <td>
+            <form name="myForm"  onsubmit="return validateForm()">
+            <label for="formGroupExampleInput" class="form label"
+              >Email :
+            </label>
+            
+          
+          </td>
+          <td>
+            <input
+              type="text"
+              name="Email"
+              class="form-control"
+              id="formGroupEmailInput"
+              placeholder="Email"
+              
+            />
+          
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="formGroupExampleInput2" class="form label"
+              >Password :
+            </label>
+          </td>
+          <td>
+            <input
+              type="password"
+              name="Password"
+              class="form-control"
+              id="formGroupPasswordInput2"
+              placeholder="Password"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+          <button type="submit" class="button">Submit</button>
+          </form>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
